@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron" style="margin: 0px 100px 0px 100px;text-indent: 50px">
+{% for message in get_flashed_messages() %}
+    <h1 style="color: red">{{ message }}</h1>
+
+{% endfor %}
+
+  <h1>Hello, docker!</h1>
+  <p>please choose</p>
+  <p ><a class="btn btn-primary btn-lg" href="{{ url_for('isinstance_manage.create_instance') }}" role="button" style="text-align: center">Create instance</a></p>
+    <p><a class="btn btn-primary btn-lg" href="{{ url_for('isinstance_manage.list_instance') }}" role="button" style="text-align: center">list instance</a></p>
+    <p><a class="btn btn-primary btn-lg" href="{{ url_for('isinstance_manage.restart_instance') }}" role="button" style="text-align: center">stop instance</a></p>
+</div>
+{% endblock %}

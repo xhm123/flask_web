@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% block content %}
+    <div class="jumbotron"">
+        <h1>Instances List</h1>
+          <p></p>
+      </div>
+        <h2>the instance your get start:</h2>
+    <table class="table table-hover">
+
+<!-- On cells (`td` or `th`) -->
+        <tr>
+  <td class="active">容器名</td>
+  <td class="success">ID</td>
+  <td class="warning">状态</td>
+  <td class="danger">创建时间</td>
+  <td class="info">操作</td>
+</tr>
+        {% for comment in comments %}
+
+<tr>
+  <td class="active">{{comment.name  }}</td>
+  <td class="success">{{ comment.short_id }}</td>
+  <td class="warning">{{ comment.status }}</td>
+  <td class="danger">{{ comment.created }}</td>
+  <td class="info"><a href="{{ url_for('isinstance_manage.stop_instance',instance_id=comment.short_id) }}">删除</a>
+      <a href="">查看</a>
+  </td>
+</tr>
+      {% endfor %}
+    </table>
+{% endblock %}
